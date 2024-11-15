@@ -70,7 +70,7 @@ app.patch("/blog/:id",async function(req,res){
         description
     })
     res.json({
-    message:"updated successfully"
+    message:"updated successfully "
     })
 })
 
