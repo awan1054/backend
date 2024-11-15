@@ -10,10 +10,8 @@ var blogschema=new schema({
     },
     description:{
         type: String
-    },
-    age:{
-        type: Number
     }
+   
 })
 
 var blog=mongoose.model("blog",blogschema)

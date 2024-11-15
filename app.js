@@ -46,6 +46,35 @@ app.get("/blog",async function(req,res){
    })
 })
 
+app.get("/blog/:id", async function(req,res){
+    var id=req.params.id
+    var blogs= await blog.findById(id)
+    res.json({
+        data: blogs
+    })
+
+})
+app.delete("/blog/:id",async function(req,res){
+    var id=req.params.id
+    await blog.findByIdAndDelete(id)
+    res.json({
+        message:"blog deleted successfully"
+    })
+})
+app.patch("/blog/:id",async function(req,res){
+    var id=req.params.id
+    var{title,subtitle,description}=req.body
+   await blog.findByIdAndUpdate(id,{
+        title,
+        subtitle,
+        description
+    })
+    res.json({
+    message:"updated successfully"
+    })
+})
+
+
 app.listen(3000,()=>{
     console.log("nodejs server has started at port 3000")
 })
